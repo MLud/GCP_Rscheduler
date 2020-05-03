@@ -1,0 +1,20 @@
+---
+title: "Uruchamianie w GCP"
+output: html_document
+---
+
+# Zabawa na podstawie:
+
+<https://code.markedmondson.me/googleCloudRunner/articles/setup.html>
+
+1. Trzeba ustawić rolę serwisową
+2. ustawić API cloud build na enable
+
+
+
+pierwsze 120 min jest za darmo:
+<https://cloud.google.com/cloud-build/pricing>
+
+
+ręczne odpalenie schedulera:
+googleCloudRunner::cr_deploy_gadget()

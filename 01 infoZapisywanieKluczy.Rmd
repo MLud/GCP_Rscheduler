@@ -1,0 +1,43 @@
+---
+title: "01 klucze"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Gdzie zapisywać klucze:
+
+http://www.dartistics.com/renviron.html
+
+
+
+# R Startup Files
+
+R has a couple of “startup” files:
+  
+* `.Rprofile` gets executed every time R starts up, so, if you always want to run some specific script, you can put it in the .Rprofile file.
+* `.Renviron` also gets evaluated every time an R session starts, but its sole purpose is to set environment variables.
+
+We’re not going to go into detail on .Rprofile here, as it’s not used for the API key protection that we’re covering.
+
+So, there’s a .Renviron file. File that away for now.
+
+# plik .Rprofile jest ładowany z najniższej hierarhii:
+
+1. Stąd jeśli istnieje `getwd()`
+2. jeśli nie to z `R.home()`
+2. w ostatniej kolejności z `Sys.getenv("HOME")`
+
+# Stworzenie pliku w windows:
+`type nul > your_file.txt`
+
+# struktura .Rprofile:
+```
+ADOBE_KEY="a7xxxxx639-iih-nordic-r"
+ADOBE_SECRET="2eadxxxxx1495ea49"
+
+
+
+```

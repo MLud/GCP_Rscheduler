@@ -3,7 +3,7 @@ steps:
   id: Docker Version
   args: ["version"]
 - name: 'alpine'
-  id:  Hello Cloud Build
+  id:  Hello Cloud Build - small linux
   args: ["echo", "Hello Cloud Build"]
 - name: 'rocker/r-base'
   id: Hello R

@@ -1,6 +1,4 @@
 
-install.packages('stringr')
-
 library(rvest)
 library(jsonlite)
 library(magrittr)
@@ -26,7 +24,7 @@ dane1 <- page %>%
   str_replace_all(',','')
 
 
-#Ponieważ mamy dwie tabele danych, patrzymy gdzie się zaczynają
+#because we have two tables we have to see where their start
 indexes=which(dane1=='World')
 
 

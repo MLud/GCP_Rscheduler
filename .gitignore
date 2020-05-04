@@ -41,3 +41,6 @@ vignettes/*.pdf
 
 # output html
 .html
+cloudbuild_write.yaml
+..tar.gz
+deploy/*

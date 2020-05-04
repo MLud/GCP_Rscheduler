@@ -1,10 +1,8 @@
 steps:
-- name: 'gcr.io/szkolachmury-kurs-gcp/dockerfile:1'
+- name: 'gcr.io/szkolachmury-kurs-gcp/mytidyverse:latest'
   id: R script
   args: ["R", "-e", "library(readr) \n x<-data.frame(a=1:10, b=11:20) \n write_csv(x,path='schedule6.csv',append=TRUE) \n getwd()"]
 - name: gcr.io/cloud-builders/gsutil
   id: copy xls to bucket
   args: ['cp', "/workspace/schedule6.csv","gs://gcp-r-bucket/auto/schedule6.csv"]
-- name: 'alpine'
-  id:  Mały linux alpine
-  args: ["echo", "Hello Cloud Build"]
+

@@ -13,7 +13,7 @@ ymdhms<-paste0(format(Sys.Date(), "%Y%m%d"),'_',format(Sys.time(), "%H%M%S"))
 
 
 
-# jaką stronę wczytujemy?
+# which page we read?
 base_url <- "https://www.gov.pl/web/koronawirus/wykaz-zarazen-koronawirusem-sars-cov-2"
 page <- read_html(base_url)
 
@@ -41,6 +41,5 @@ print(system('ls -R'))
 getwd()
 
 
-#gcr.io/szkolachmury-kurs-gcp/dockerfile:1
 
 

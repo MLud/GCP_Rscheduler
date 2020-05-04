@@ -13,13 +13,13 @@ library(googleCloudRunner)
 b1 <- cr_build("10 cloudbuildTest.yaml")
 
 ########################
-#2 we can wait for running in GCP
+#2 we can wait for end of running in GCP
 # https://console.cloud.google.com/cloud-build/builds
 b2 <- cr_build("10 cloudbuildTest.yaml", launch_browser = FALSE)
 b3 <- cr_build_wait(b2)
 
 #######################
-#3 we can run abd schedule
+#3 we can run and schedule
 # https://console.cloud.google.com/cloudscheduler
 itworks <- cr_build("10 cloudbuildTest.yaml", launch_browser = FALSE)
 cr_schedule("20 * * * *", name="deploy-z-R-schedule1",httpTarget = cr_build_schedule_http(itworks))
@@ -59,7 +59,7 @@ cr_schedule("20 * * * *", name="deploy-from-R-schedule2",httpTarget = cr_build_s
 # 6. We can do that without YAML predefined file. 
 # INFO: 
 # gs://gcp-r-bucket/auto is my backet for data
-# gcr.io/szkolachmury-kurs-gcp/dockerfile:1 is my image of docker
+# gcr.io/szkolachmury-kurs-gcp/mytidyverse:latest is my image of docker
 
 # We can:
 # create it by R code
@@ -96,8 +96,8 @@ cr_schedule("20 * * * *", name="testdeploy-z-R-zrzut-GOV-koronawirus",httpTarget
 #INFO: 
 # gs://gcp-r-bucket/auto is my backet for data
 # automatEU.coronawirus_gov_pl is my dataset in bq
-#/workspace/out.csv is an output csv file from 20 forYamlCOVIDpoland.R script
-#https://console.cloud.google.com/gcr/images/cloud-builders
+# /workspace/out.csv is an output csv file from 20 forYamlCOVIDpoland.R script
+# https://console.cloud.google.com/gcr/images/cloud-builders
 yaml<-cr_build_yaml(
   steps = c(
     cr_buildstep_r("20 forYamlCOVIDpoland.R"

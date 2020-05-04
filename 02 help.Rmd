@@ -1,20 +1,19 @@
 ---
-title: "Uruchamianie w GCP"
+title: "Running in  GCP"
 output: html_document
 ---
 
-# Zabawa na podstawie:
+# Playgroud base on:
 
 <https://code.markedmondson.me/googleCloudRunner/articles/setup.html>
 
-1. Trzeba ustawić rolę serwisową
-2. ustawić API cloud build na enable
+1. We need to set up service role
+2. we need to set up API cloud build into enable
 
 
-
-pierwsze 120 min jest za darmo:
+first 120min is free:
 <https://cloud.google.com/cloud-build/pricing>
 
 
-ręczne odpalenie schedulera:
+manual scheduler running:
 googleCloudRunner::cr_deploy_gadget()

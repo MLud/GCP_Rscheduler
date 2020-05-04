@@ -7,7 +7,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Gdzie zapisywać klucze:
+# Where we should write keys:
 
 http://www.dartistics.com/renviron.html
 
@@ -24,16 +24,16 @@ We’re not going to go into detail on .Rprofile here, as it’s not used for th
 
 So, there’s a .Renviron file. File that away for now.
 
-# plik .Rprofile jest ładowany z najniższej hierarhii:
+# The  .Rprofile file is loaded from the lowest hierarchy:
 
-1. Stąd jeśli istnieje `getwd()`
-2. jeśli nie to z `R.home()`
-2. w ostatniej kolejności z `Sys.getenv("HOME")`
+1. From this place if exists `getwd()`
+2. If not, from this `R.home()`
+2. In the last of all from `Sys.getenv("HOME")`
 
-# Stworzenie pliku w windows:
+# How we can create a file in windows batch:
 `type nul > your_file.txt`
 
-# struktura .Rprofile:
+# structure of .Rprofile:
 ```
 ADOBE_KEY="a7xxxxx639-iih-nordic-r"
 ADOBE_SECRET="2eadxxxxx1495ea49"

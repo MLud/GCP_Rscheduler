@@ -35,9 +35,9 @@ So, there’s a .Renviron file. File that away for now.
 
 # structure of .Rprofile:
 ```
-ADOBE_KEY="a7xxxxx639-iih-nordic-r"
-ADOBE_SECRET="2eadxxxxx1495ea49"
-
-
-
+GCE_AUTH_FILE="C:/Users/ludwi/Documents/GCP_klucze/kurs-gcp-fbfb57e6c23b.json"
+GCE_DEFAULT_PROJECT_ID="kurs-gcp"
+GCS_DEFAULT_BUCKET="kurs-gcp-bucket"
+CR_REGION="europe-west1"
+CR_BUILD_EMAIL=googlecloudrunner@kurs-gcp.iam.gserviceaccount.com
 ```

@@ -2,7 +2,12 @@
 
 
 library(googleCloudRunner)
-#Firstly you have to set up an env in GCP and Your PC access (02.help)
+#Firstly you have to set up an env in GCP and Your PC access (02.help) 
+
+
+GCS_DEFAULT_BUCKET="my-bucket"
+CR_REGION="europe-west1"
+
 
 
 
@@ -33,9 +38,9 @@ cr_schedule("20 * * * *", name="deploy-z-R-schedule1",httpTarget = cr_build_sche
 #############################################################
 
 ######################
-#4. Now we can create our own docker image in GCP registry based on Dockerfile
+#4. Now we can create our own docker image in GCP registry based on Dockerfile (included in R project)
 #INFO: You have to delete '..tar.gz' file and 'deploy' catalog after each deployment! 
-#buiding process: https://console.cloud.google.com/cloud-build/builds/
+#building process: https://console.cloud.google.com/cloud-build/builds/
 #result image: https://console.cloud.google.com/gcr
 cr_deploy_docker("./",image_name ='mytidyverse',tag="latest")
 
@@ -43,6 +48,7 @@ cr_deploy_docker("./",image_name ='mytidyverse',tag="latest")
 
 #5. Run R code on private docker and copy the result csv into gooogle storage (in YAML is my google storage)
 #INFO: we can do that also by artifacts
+#CONFIG:
 #gs://gcp-r-bucket/auto/ is my backet for data
 itworks <- cr_build("11 cloudbuildCopyCsv.yaml", launch_browser = FALSE)
 cr_schedule("20 * * * *", name="deploy-from-R-schedule2",httpTarget = cr_build_schedule_http(itworks))
@@ -56,7 +62,7 @@ cr_schedule("20 * * * *", name="deploy-from-R-schedule2",httpTarget = cr_build_s
 
 
 #############################################################
-# 6. We can do that without YAML predefined file. 
+# 6. We can do that without YAML predefined file.  We can create yaml file by cr_build_yaml
 # INFO: 
 # gs://gcp-r-bucket/auto is my backet for data
 # gcr.io/szkolachmury-kurs-gcp/mytidyverse:latest is my image of docker

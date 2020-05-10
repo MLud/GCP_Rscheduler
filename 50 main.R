@@ -5,10 +5,6 @@ library(googleCloudRunner)
 #Firstly you have to set up an env in GCP and Your PC access (02.help) 
 
 
-GCS_DEFAULT_BUCKET="my-bucket"
-CR_REGION="europe-west1"
-
-
 
 
 ########################

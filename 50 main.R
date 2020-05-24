@@ -150,7 +150,7 @@ yaml<-cr_build_yaml(
                              "load",
                              "--autodetect",
                              "--source_format=CSV",
-                             "automatEU.coronawirus_worldometers2",
+                             "automatEU.coronawirus_worldometers3",
                              "/workspace/build/outToday.csv"),
                     env='CLOUDSDK_COMPUTE_ZONE=eu-east4-b'
     )

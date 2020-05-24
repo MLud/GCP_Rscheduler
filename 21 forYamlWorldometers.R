@@ -34,19 +34,30 @@ indexes=which(dane1=='World')
 daneTable<-function (data, dataFrom, dataTo){
 
   daneOut<-data[dataFrom:dataTo]  
-  daneOut2<-matrix(daneOut,,13,byrow = TRUE) %>% as.data.frame(stringsAsFactors =FALSE)
-  names(daneOut2)<-c('Country','TotalCases','NewCases','TotalDeaths','NewDeaths','TotalRecovered','ActiveCases','SeriousCritical','TotCases1Mpop','Deaths1Mpop','TotalTests','Tests1Mpop','Continent')
+  daneOut2<-matrix(daneOut,,15,byrow = TRUE) %>% as.data.frame(stringsAsFactors =FALSE) 
+  names(daneOut2)<-c('lp','Country','TotalCases','NewCases','TotalDeaths','NewDeaths','TotalRecovered','ActiveCases','SeriousCritical','TotCases1Mpop','Deaths1Mpop','TotalTests','Tests1Mpop','Population','Continent')
   daneOut2$timestamp<-ymdhms
-  
+
+  daneOut2<-daneOut2 %>% dplyr::filter(lp !='')
+  str(daneOut2)
   return (daneOut2)
   }
 
-daneToday<-daneTable(dane1,indexes[1],indexes[2]-1)
-daneYesterday<-daneTable(dane1,indexes[2],length(dane1))
+
+daneToday<-daneTable(dane1,indexes[1]-1,indexes[2]-2)
+daneYesterday<-daneTable(dane1,indexes[2]-1,length(dane1))
 
 
 write_csv(daneToday,path=paste0('outToday',ymdhms,'.csv'))
 write_csv(daneYesterday,path=paste0('outYesterday',ymdhms,'.csv'))
+write_csv(dane1,path=paste0('InAll',ymdhms,'.csv'))
+
+
+
 
 write_csv(daneToday,path='outToday.csv')
 write_csv(daneYesterday,path='outYesterday.csv')
+
+
+
+

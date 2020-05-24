@@ -142,7 +142,12 @@ yaml<-cr_build_yaml(
     ),
     cr_buildstep( name="gcr.io/cloud-builders/gsutil",
                   args = c("cp","/workspace/build/*.csv","gs://gcp-r-bucket/auto/worldometers"),
-                  id = "kopiowanie przez gsutil"),
+                  id = "kopiowanie CSV przez gsutil"),
+    cr_buildstep( name="gcr.io/cloud-builders/gsutil",
+                  args = c("cp","/workspace/build/*.Rdata","gs://gcp-r-bucket/auto/worldometers"),
+                  id = "kopiowanie Rdata przez gsutil"),
+    
+    
     cr_buildstep(   id = "load BigQuery",
                     name = "gcr.io/cloud-builders/gcloud",
                     entrypoint = "bq",

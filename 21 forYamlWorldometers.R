@@ -50,7 +50,7 @@ daneYesterday<-daneTable(dane1,indexes[2]-1,length(dane1))
 
 write_csv(daneToday,path=paste0('outToday',ymdhms,'.csv'))
 write_csv(daneYesterday,path=paste0('outYesterday',ymdhms,'.csv'))
-write_csv(dane1,path=paste0('InAll',ymdhms,'.csv'))
+save(dane1,file=paste0('InAll',ymdhms,'.Rdata'))
 
 
 

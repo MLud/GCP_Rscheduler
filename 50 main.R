@@ -103,7 +103,7 @@ cr_schedule("20 * * * *", name="testdeploy-z-R-zrzut-GOV-koronawirus",httpTarget
 yaml<-cr_build_yaml(
   steps = c(
     cr_buildstep_r("20 forYamlCOVIDpoland.R"
-                   , name="gcr.io/szkolachmury-kurs-gcp/mytidyverse:latest"
+                   , name="gcr.io/szkolachmury-kurs-gcp/github.com/mytidyverse:latest"
                    , id='run R script'
                    ),
     cr_buildstep( name="gcr.io/cloud-builders/gsutil",
@@ -123,7 +123,7 @@ yaml<-cr_build_yaml(
   )
 )
 build <- cr_build_make(yaml)
-cr_schedule("23 * * * *", name="deploy-z-R-zrzutBQ-GOV-koronawirus3",httpTarget = cr_build_schedule_http(build))
+cr_schedule("23 * * * *", name="deploy-z-R-zrzutBQ-GOV-PL",httpTarget = cr_build_schedule_http(build))
 
 
 
@@ -155,14 +155,14 @@ yaml<-cr_build_yaml(
                              "load",
                              "--autodetect",
                              "--source_format=CSV",
-                             "automatEU.coronawirus_worldometers3",
+                             "automatEU.coronawirus_worldometers4",
                              "/workspace/build/outToday.csv"),
                     env='CLOUDSDK_COMPUTE_ZONE=eu-east4-b'
     )
   )
 )
 build <- cr_build_make(yaml)
-cr_schedule("25 * * * *", name="deploy-z-R-zrzutBQ-worldometers",httpTarget = cr_build_schedule_http(build))
+cr_schedule("25 * * * *", name="deploy-z-R-zrzutBQ-worldometers4",httpTarget = cr_build_schedule_http(build))
 
 
 
